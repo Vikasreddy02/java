@@ -1,0 +1,51 @@
+mysql> create table person(
+    -> id int primary key not null,
+    -> FirstName varchar(20) not null,
+    -> LastName varchar(20) not null,
+    -> Address varchar(100) not null,
+    -> city varchar(10) not null
+    -> );
+Query OK, 0 rows affected (0.19 sec)
+
+mysql> desc person;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| id        | int(11)      | NO   | PRI | NULL    |       |
+| FirstName | varchar(20)  | NO   |     | NULL    |       |
+| LastName  | varchar(20)  | NO   |     | NULL    |       |
+| Address   | varchar(100) | NO   |     | NULL    |       |
+| city      | varchar(10)  | NO   |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> insert intp person values(1,'vikas','reddy','govandi','mumbai');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'person values(1,'vikas','reddy','govandi','mumbai')' at line 1
+mysql> insert into person values(1,'vikas','reddy','govandi','mumbai');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into person values(1,'tejas','kute','govandi','mumbai');
+ERROR 1062 (23000): Duplicate entry '1' for key 'PRIMARY'
+mysql> insert into person values(2,'tejas','kute','govandi','mumbai');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into person values(3,'anuja','wadkar','govandi','mumbai');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into person values(4,'jaya','dambarke','govandi','mumbai');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into person values(5,'shubham','pawar','govandi','mumbai');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select * from person;
++----+-----------+----------+---------+--------+
+| id | FirstName | LastName | Address | city   |
++----+-----------+----------+---------+--------+
+|  1 | vikas     | reddy    | govandi | mumbai |
+|  2 | tejas     | kute     | govandi | mumbai |
+|  3 | anuja     | wadkar   | govandi | mumbai |
+|  4 | jaya      | dambarke | govandi | mumbai |
+|  5 | shubham   | pawar    | govandi | mumbai |
++----+-----------+----------+---------+--------+
+5 rows in set (0.00 sec)
